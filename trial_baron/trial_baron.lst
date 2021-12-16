@@ -1,0 +1,169 @@
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1   
+   2  variable t;
+   3   
+   4  t.lo=-2;
+   5  t.up=10;
+   6   
+   7  equation expeq;
+   8  expeq.. exp(-8.5*t)=g=10;
+   9   
+  10  variable objval;
+  11  equation objcons;
+  12  objcons.. objval=e=t;
+  13   
+  14   
+  15  Model trial_exp /ALL/;
+  16  Option NLP=BARON;
+  17   
+  18  Solve trial_exp using NLP maximizing objval;
+  19   
+  20  Display t.l;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE trial_exp Using NLP From line 18
+
+
+---- expeq  =G=  
+
+expeq..  - (8.5)*t =G= 10 ; (LHS = 1, INFES = 9 ****)
+     
+
+---- objcons  =E=  
+
+objcons..  - t + objval =E= 0 ; (LHS = 0)
+     
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE trial_exp Using NLP From line 18
+
+
+---- t  
+
+t
+                (.LO, .L, .UP, .M = -2, 0, 10, 0)
+      (-8.5)    expeq
+       -1       objcons
+
+
+---- objval  
+
+objval
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       objcons
+
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE trial_exp Using NLP From line 18
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           2     SINGLE EQUATIONS            2
+BLOCKS OF VARIABLES           2     SINGLE VARIABLES            2
+NON ZERO ELEMENTS             3     NON LINEAR N-Z              1
+DERIVATIVE POOL              20     CONSTANT POOL              17
+CODE LENGTH                   5
+
+
+GENERATION TIME      =        0.022 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+
+
+EXECUTION TIME       =        0.023 SECONDS      3 MB  24.7.4 r58773 LEX-LEG
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE trial_exp Using NLP From line 18
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   trial_exp           OBJECTIVE  objval
+     TYPE    NLP                 DIRECTION  MAXIMIZE
+     SOLVER  BARON               FROM LINE  18
+
+**** SOLVER STATUS     1 Normal Completion         
+**** MODEL STATUS      2 Locally Optimal           
+**** OBJECTIVE VALUE               -0.2709
+
+ RESOURCE USAGE, LIMIT          0.010      1000.000
+ ITERATION COUNT, LIMIT         0    2000000000
+ EVALUATION ERRORS              0             0
+
+GAMS/BARON       24.7.4 r58773 Released Sep 19, 2016 LEG x86 64bit/Linux      
+
+BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+Parts of the BARON software were created at the
+University of Illinois at Urbana-Champaign.
+
+
+===========================================================================
+ BARON version 16.8.24. Built: LNX-64 Wed Aug 24 08:52:24 EDT 2016
+
+ If you use this software, please cite:
+ Tawarmalani, M. and N. V. Sahinidis, A polyhedral
+ branch-and-cut approach to global optimization,
+ Mathematical Programming, 103(2), 225-249, 2005.
+
+ BARON is a product of The Optimization Firm, LLC. http://www.minlp.com/
+ Parts of the BARON software were created at the
+ University of Illinois at Urbana-Champaign.
+===========================================================================
+ This BARON run may utilize the following subsolver(s)
+ For LP/MIP: ILOG CPLEX                                      
+ For NLP: MINOS, SNOPT, GAMS external NLP, IPOPT, FILTERSD
+===========================================================================
+
+Solution      = -0.270892363881652  best solution found during preprocessing
+Best possible = -0.246265785347
+Absolute gap  = 0.0246265785346524  optca = 1E-9
+Relative gap  = 0.09091  optcr = 0.1
+  (Note that BARON uses a different formula to compute the relative gap as
+   was used for the above reported value.)
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU expeq             10.0000        10.0000        +INF           -0.0118      
+---- EQU objcons             .              .              .             1.0000      
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE trial_exp Using NLP From line 18
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR t                 -2.0000        -0.2709        10.0000          .          
+---- VAR objval            -INF           -0.2709        +INF             .          
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+                             0     ERRORS
+GAMS 24.7.4  r58773 Released Sep 19, 2016 LEX-LEG x86 64bit/Linux                                                                                                                                                                      12/15/21 19:24:22 Page 7
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+E x e c u t i o n
+
+
+----     20 VARIABLE t.L                   =       -0.271  
+
+
+EXECUTION TIME       =        0.003 SECONDS      2 MB  24.7.4 r58773 LEX-LEG
+
+
+USER: Bhavik Bakshi, Single User License             G160607:0939AO-LNX
+      The Ohio State University, Chemical and Biomolecular EnginDC12543
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      /home/thakker.8/Documents/project-codes/Plan_RoadmapsIAM/toy-problem/trial_baron/trial_baron.gms
+Output     /home/thakker.8/Documents/project-codes/Plan_RoadmapsIAM/toy-problem/trial_baron/trial_baron.lst
