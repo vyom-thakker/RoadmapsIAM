@@ -117,9 +117,9 @@ version = "0.3.0"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "dce3e3fea680869eaa0b774b2e8343e9ff442313"
+git-tree-sha1 = "44c37b4636bc54afac5c574d2d02b625349d6582"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.40.0"
+version = "3.41.0"
 
 [[CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -336,6 +336,7 @@ version = "1.0.2"
 [[Gurobi]]
 deps = ["CEnum", "Libdl", "MathOptInterface", "Pkg"]
 git-tree-sha1 = "c34bc1d66fc8251f94338c016e4ad0ac50dfbe73"
+pinned = true
 uuid = "2e9cd046-0924-5485-92f1-d5272153d98b"
 version = "0.10.1"
 
@@ -431,6 +432,7 @@ version = "2.1.0+0"
 [[JuMP]]
 deps = ["Calculus", "DataStructures", "ForwardDiff", "JSON", "LinearAlgebra", "MathOptInterface", "MutableArithmetics", "NaNMath", "Printf", "Random", "SparseArrays", "SpecialFunctions", "Statistics"]
 git-tree-sha1 = "de9c69c0862be0e11afe5d4aa3426af1d7ecac2c"
+pinned = true
 uuid = "4076af6c-e467-56ae-b986-b466b2749572"
 version = "0.22.1"
 
