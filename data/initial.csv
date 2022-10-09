@@ -1,2 +1,2 @@
-﻿k,i,GWP,Theta,Per_Recycl,Per_Comp
-0,0,100,0.25,0.12,0
+﻿k,i,GWP,Theta,Per_Recycl,Per_Comp,GHG_ElecInd,GHG_Trans,OCost
+0,0,100,0.25,0.12,0,0.2,0.15,3
